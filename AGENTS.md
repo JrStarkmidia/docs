@@ -1,45 +1,57 @@
-> **First-time setup**: This is a default AGENTS.md file. Customize it for your project's specific needs, including your preferred code languages, terminology, style guidelines, and content requirements.
+# Instrucoes do agente de documentacao - StarkMidia
 
-# Documentation agent instructions
+## Contexto do projeto
 
-IMPORTANT! When you start a session, remind the user that they have the default AGENTS.md file and they might want to customize it for their project.
+- Este repositorio contem a documentacao do sistema financeiro da StarkMidia para clientes finais.
+- O publico e leigo: pouca familiaridade com sistemas e termos tecnicos.
+- O foco e uso pratico do dia a dia: o que existe no sistema e como usar de forma simples.
 
-## Mintlify basics
+## Objetivo editorial
 
-- Configuration lives in `docs.json` - check it before making structural changes
-- Use MDX format for documentation pages
-- Run `mint dev` locally to preview changes before committing
-- Run `mint broken-links` to check for broken links
+- Ensinar tarefas basicas com linguagem clara e direta.
+- Reduzir duvidas de primeiro acesso e operacao diaria.
+- Priorizar orientacoes acionaveis em vez de explicacoes tecnicas internas.
 
-## Mintlify components
+## Linguagem e tom
 
-Use Mintlify's built-in components for consistent formatting. See https://www.mintlify.com/docs/components for all available components.
+- Escreva em portugues do Brasil.
+- Fale com o usuario em segunda pessoa: "voce".
+- Use voz ativa e frases curtas (uma ideia por frase).
+- Evite jargao. Quando um termo tecnico for inevitavel, explique em linguagem simples na mesma secao.
+- Use titulos em sentence case.
 
-## Style and formatting
+## Padrao de conteudo por pagina
 
-- Use active voice and second person ("you")
-- Keep sentences concise - one idea per sentence
-- Use sentence case for headings
-- When referencing UI elements, use bold: Click **Settings**
-- Use code formatting for: file names, commands, paths, and code references
+- Inclua frontmatter com `title` e `description`.
+- Abra a pagina com contexto curto: o que a funcionalidade faz e quando usar.
+- Traga passo a passo numerado para a tarefa principal.
+- Inclua resultado esperado ao final da tarefa.
+- Inclua "Proximos passos" com links internos quando fizer sentido.
+- Se houver risco de erro comum, adicione um aviso curto com orientacao de correcao.
 
-## Code examples
+## Formato e componentes Mintlify
 
-- Include language identifiers in fenced code blocks
-- Add titles to code blocks when relevant: ```javascript filename.js
-- Show realistic parameter values, not placeholders like `foo` or `bar`
-- Include error handling for API examples
+- Use MDX em todas as paginas.
+- Prefira componentes nativos do Mintlify (`Card`, `CardGroup`, `Tip`, `Note`, `Warning`, etc.) em vez de HTML puro.
+- Referencie elementos de interface em negrito: **Entrar no sistema**, **Salvar**, **Pedidos**.
+- Use formato de codigo para comandos, caminhos e arquivos: `npx mint dev`, `docs.json`.
+- Em blocos de codigo, sempre use identificador de linguagem quando aplicavel.
 
-## Content structure
+## Regras de manutencao
 
-- Add frontmatter (title, description) to every page
-- Use `sidebarTitle` in frontmatter if the nav title should differ from the page title
-- Include introductory context before diving into steps or details
-- Add "Next steps" or related links where helpful
+- Verifique `docs.json` antes de qualquer mudanca estrutural ou de navegacao.
+- Nao adicione pagina na navegacao se o arquivo ainda nao existir.
+- Nao remova paginas sem validar impacto de links internos.
+- Preserve o foco em guia de uso; nao transformar paginas em referencia tecnica de API.
 
-## What to avoid
+## Qualidade e validacao
 
-- Don't edit `docs.json` without understanding the navigation structure
-- Don't remove existing pages without checking for inbound links
-- Don't use HTML when an MDX component exists for the same purpose
-- Don't add pages to navigation that don't exist yet
+- Antes de concluir, rodar `npx mint broken-links`.
+- Quando houver mudancas relevantes de conteudo ou navegacao, validar no preview com `npx mint dev`.
+- Corrigir linguagem para manter leitura simples, escaneavel e sem ambiguidades.
+
+## Definicao de pronto (DoD)
+
+- Cliente leigo consegue entender a funcionalidade sem apoio tecnico.
+- A pagina responde: onde clicar, o que preencher e o que esperar.
+- O conteudo esta consistente com nomes de menu e fluxo atual do sistema.
